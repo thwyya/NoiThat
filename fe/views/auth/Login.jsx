@@ -28,7 +28,11 @@ const Login = () => {
           </Link>
         </div>
 
-        <PrimaryButton text="LOGIN" />
+        <PrimaryButton text="LOGIN" fullWidth />
+        <div className="flex gap-2 w-full">
+          <SecondaryButton text="LOGIN WITH GOOGLE" className="flex-1"/>
+          <SecondaryButton text="LOGIN WITH FACEBOOK" className="flex-1"/>
+        </div>
 
         <div className="flex items-center gap-2">
           <hr className="flex-1 border-gray-300" />
@@ -37,7 +41,7 @@ const Login = () => {
         </div>
 
         <Link to="/register">
-          <SecondaryButton text="SIGN UP" />
+          <SecondaryButton text="SIGN UP" fullWidth />
         </Link>
       </form>
     </div>

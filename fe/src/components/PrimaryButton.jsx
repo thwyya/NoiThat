@@ -1,12 +1,13 @@
-const PrimaryButton = ({ text, onClick }) => {
+const PrimaryButton = ({ text, onClick, fullWidth = false }) => {
   return (
     <button
       onClick={onClick}
-          className="w-full block px-4 py-2 bg-[#323334] text-white rounded-none shadow-none"
+      className={`block px-4 py-2 bg-[#323334] text-white rounded-none shadow-none 
+        ${fullWidth ? "w-full" : "w-auto inline-block"}`}
     >
       {text}
     </button>
-  )
-}
+  );
+};
 
-export default PrimaryButton
+export default PrimaryButton;

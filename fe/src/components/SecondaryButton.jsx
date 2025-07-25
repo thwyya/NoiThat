@@ -1,12 +1,18 @@
-const SecondaryButton = ({ text, onClick }) => {
+const SecondaryButton = ({ text, onClick, fullWidth = false, color = "#323334", className = "" }) => {
   return (
     <button
       onClick={onClick}
-          className="w-full block px-4 py-2 bg-transparent text-[#323334] border-2 border-[#323334]"
+      className={`block px-4 py-2 bg-transparent border-2 ${
+        fullWidth ? "w-full" : "w-auto inline-block" 
+      } ${className}`}
+      style={{
+        color: color,
+        borderColor: color,
+      }}
     >
       {text}
     </button>
-  )
-}
+  );
+};
 
-export default SecondaryButton
+export default SecondaryButton;

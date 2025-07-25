@@ -26,7 +26,7 @@ const Register = () => {
           <FiEye className="absolute right-3 top-2.5 text-gray-500 cursor-pointer h-5 w-5" />
         </div>        
 
-        <PrimaryButton text="SIGN UP" />
+        <PrimaryButton text="SIGN UP" fullWidth />
 
         <div className="flex items-center gap-2">
           <hr className="flex-1 border-gray-300" />
@@ -35,7 +35,7 @@ const Register = () => {
         </div>
 
         <Link to="/login">
-          <SecondaryButton text="LOGIN" />
+          <SecondaryButton text="LOGIN" fullWidth />
         </Link>
       </form>
     </div>
