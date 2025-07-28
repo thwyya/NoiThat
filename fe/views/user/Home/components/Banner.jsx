@@ -3,7 +3,7 @@ import SecondaryButton from '@/components/SecondaryButton';
 
 const Banner = () => {
   return (
-    <section className="w-full h-[450px] bg-[#DBD0CC] opacity-80 border border-[#323334]">
+    <section className="w-full h-[450px] bg-[#DBD0CC]/80 border border-[#323334]">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-10 py-8 md:py-16">
         <div className="flex-1 flex justify-center md:justify-start">
           <img

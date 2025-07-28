@@ -2,7 +2,7 @@ const SecondaryButton = ({ text, onClick, fullWidth = false, color = "#323334", 
   return (
     <button
       onClick={onClick}
-      className={`block px-4 py-2 bg-transparent border-2 ${
+      className={`block px-4 py-2 bg-transparent border-2 font-bold ${
         fullWidth ? "w-full" : "w-auto inline-block" 
       } ${className}`}
       style={{

@@ -23,7 +23,7 @@ const FeatureBar = () => {
         {features.map((item, index) => (
           <div key={index} className="flex items-center gap-2">
             {item.icon}
-            <span className="text-[#000] opacity-50 text-xs md:text-sm font-bold">
+            <span className="text-[#000]/50  text-xs md:text-sm font-bold">
               {item.title}
             </span>
           </div>

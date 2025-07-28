@@ -1,6 +1,8 @@
 import React from "react";
-import { FiSearch, FiUser, FiHeart } from "react-icons/fi";
+import { FiSearch, FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import UserMenu from "../../views/user/Home/components/UserMenu";
+import FilterMenu from "../../views/user/Products/components/FilterMenu";
 
 const Header = () => {
   return (
@@ -12,10 +14,10 @@ const Header = () => {
         <div className="flex items-center gap-10 text-2xl text-[#323334]">
           <button aria-label="Search" className="hover:text-black">
             <FiSearch />
-          </button>
-          <button aria-label="User" className="hover:text-black">
-            <FiUser />
-          </button>
+            </button>
+            
+            <UserMenu />
+            <FilterMenu />
 
           <div className="relative">
             <button aria-label="Cart" className="hover:text-black">
