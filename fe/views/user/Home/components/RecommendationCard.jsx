@@ -1,12 +1,28 @@
-import React from "react";
-import { FaRegStar } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaRegStar, FaRegHeart  } from "react-icons/fa";
 import SecondaryButton from "@/components/SecondaryButton";
 
 const RecommendationCard = ({ image, name, description, price, rating }) => {
+  const [liked, setLiked] = useState(false); 
+
+  const handleLikeToggle = () => {
+    setLiked((prev) => !prev);
+  };
+
   return (
     <div className="flex flex-col overflow-hidden w-[300px] h-[500px]">
       <div className="relative w-full h-100 group">
         <img src={image} alt={name} className="w-full h-full object-cover" />
+
+        <button
+          onClick={handleLikeToggle}
+          className="absolute top-3 right-3 z-20 transition-colors"
+        >
+          <FaRegHeart
+            size={24}
+            className={liked ? "text-red-400" : "text-gray-400"}
+          />
+        </button>
 
         <div className="absolute inset-0 bg-[#000]/40 flex flex-col items-start justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300  p-4">
           <div className="text-white">

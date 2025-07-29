@@ -7,6 +7,7 @@ import Home from "../../views/user/Home/HomePage";
 import Dashboard from "../../views/admin/Dashboard/Dashboard";
 import Login from "../../views/auth/Login";
 import Register from "../../views/auth/Register";
+import ProductPage from "../../views/user/Products/ProductsPage";
 
 export default function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ export default function AppRoutes() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/product" element={<ProductPage />} />
       </Route>
 
       {/* Admin */}

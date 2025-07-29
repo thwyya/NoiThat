@@ -2,7 +2,6 @@ import React from "react";
 import { FiSearch, FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import UserMenu from "../../views/user/Home/components/UserMenu";
-import FilterMenu from "../../views/user/Products/components/FilterMenu";
 
 const Header = () => {
   return (
@@ -17,15 +16,14 @@ const Header = () => {
             </button>
             
             <UserMenu />
-            <FilterMenu />
 
-          <div className="relative">
-            <button aria-label="Cart" className="hover:text-black">
-              <HiOutlineShoppingBag />
+          <div className="relative flex items-center justify-center">
+            <button aria-label="Cart" className="hover:text-black relative">
+              <HiOutlineShoppingBag className="w-6 h-6" />
+              <span className="absolute -top-1 -right-1 bg-[#F2994A] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                5
+              </span>
             </button>
-            <span className="absolute -top-1 -right-2 bg-[#F2994A] text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-              5
-            </span>
           </div>
 
           <button aria-label="Wishlist" className="hover:text-black">

@@ -4,7 +4,8 @@ const DropdownMenu = ({
   trigger,        
   children,        
   position = "bottom-left", 
-  className = ""
+  className = "",
+  menuWidth = "150px"
 }) => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
@@ -34,7 +35,8 @@ const DropdownMenu = ({
 
       {open && (
         <div
-          className={`absolute z-50 bg-white border border-[#323334] p-2 min-w-[150px] ${positionClasses[position]} ${className} before:content-[''] before:absolute before:top-[-6px] before:left-4 before:w-3 before:h-3 before:bg-white before:border-l before:border-t before:border-[#323334] before:rotate-45`}
+          className={`absolute z-50 bg-white border border-[#323334] p-2 ${positionClasses[position]} ${className} before:content-[''] before:absolute before:top-[-6px] before:left-4 before:w-3 before:h-3 before:bg-white before:border-l before:border-t before:border-[#323334] before:rotate-45`}
+          style={{ minWidth: menuWidth }} 
         >
           {children}
         </div>
