@@ -8,6 +8,8 @@ import Dashboard from "../../views/admin/Dashboard/Dashboard";
 import Login from "../../views/auth/Login";
 import Register from "../../views/auth/Register";
 import ProductPage from "../../views/user/Products/ProductsPage";
+import ProductDetailPage from "../../views/user/ProductDetail/ProductDetailPage";
+import ShoppingBagPage from "../../views/user/ShoppingBag/ShoppingBagPage";
 
 export default function AppRoutes() {
   return (
@@ -23,6 +25,8 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
         <Route path="/product" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/shoppingbag" element={<ShoppingBagPage />} />
       </Route>
 
       {/* Admin */}

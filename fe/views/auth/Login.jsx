@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiEye, FiX } from "react-icons/fi";
 import Input from '@/components/Input';
@@ -6,7 +6,10 @@ import PrimaryButton from '@/components/PrimaryButton';
 import SecondaryButton from '@/components/SecondaryButton';
 import AuthLayout from '../../src/layouts/AuthLayout';
 
-const Login = ({ onClose, onSwitch }) => {
+const Login = ({ onClose, onSwitch, onSuccess }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   useEffect(() => {
     const handleEsc = (e) => { if (e.key === "Escape") onClose(); };
     document.body.style.overflow = "hidden";
@@ -17,6 +20,14 @@ const Login = ({ onClose, onSwitch }) => {
     };
   }, [onClose]);
 
+  //tạo login giả nhập email và password bất kì
+  //nếu email có @ thì lấy tên trước @ làm tên người dùng
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const fakeUser = { name: email.split("@")[0] || "Guest" };
+    onSuccess(fakeUser);
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="absolute inset-0 bg-[#000]/50" onClick={onClose} />
@@ -26,11 +37,21 @@ const Login = ({ onClose, onSwitch }) => {
           <div className="w-full text-sm">
             <h2 className="text-2xl font-bold text-center mb-6">MOODY STUDIO</h2>
 
-            <form className="space-y-4">
-              <Input placeholder="Enter your e-mail address" />
+            <form className="space-y-4" onSubmit={handleLogin}>
+              <Input
+                placeholder="Enter your e-mail address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
               <div className="relative">
-                <Input placeholder="Enter your password" />
+                <Input
+                  placeholder="Enter your password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+
                 <FiEye className="absolute right-3 top-2.5 text-gray-500 cursor-pointer h-5 w-5" />
               </div>
 

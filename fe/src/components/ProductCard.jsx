@@ -1,20 +1,26 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const ProductCard = ({ name, price, colors }) => {
+const ProductCard = ({ id, name, price, colors }) => {
   const [activeColorIndex, setActiveColorIndex] = useState(0);
-  const activeImage = colors[activeColorIndex].image;
+  const activeImage = colors?.[activeColorIndex]?.image;
 
   return (
     <div className="flex flex-col w-[230px]">
+      <Link to={`/product/${id}`}>
       <img
         src={activeImage}
         alt={name}
         className="w-full h-[300px] object-cover mb-3 transition duration-300"
-      />
-      <h4 className="text-sm font-medium text-[#323334] mb-1">{name}</h4>
+        />
+      </Link>
+
+      <Link to={`/product/${id}`}>
+        <h4 className="text-sm font-medium text-[#323334] mb-1">{name}</h4>
+      </Link>
 
       <div className="flex gap-2 mb-2">
-        {colors.map((c, index) => {
+        {colors?.map((c, index) => {
           const isActive = index === activeColorIndex;
           const isWhite = c.hex.toLowerCase() === "#ffffff";
 
