@@ -51,7 +51,7 @@ const UserMenu = () => {
           trigger={
             <div className="flex items-center gap-2 px-2 py-1  transition">
               <FiUser size={24} />
-              <span className="text-sm font-medium">{user.name}</span>
+              <span className="text-sm font-medium leading-none relative top-[5px]">{user.name}</span>
             </div>
           }
         position="bottom-left"

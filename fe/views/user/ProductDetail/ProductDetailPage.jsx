@@ -68,7 +68,7 @@ const ProductDetailPage = () => {
       </div>
         <div className="max-w-6xl mx-auto px-4 py-8">
             <h2 className="text-xl text-[#323334] font-medium mb-6">You May Also Like</h2>
-              <ProductSuggestions products={products} />
+              <ProductSuggestions products={products} excludeIds={[product.id]} />
         </div>
     </div>
   );

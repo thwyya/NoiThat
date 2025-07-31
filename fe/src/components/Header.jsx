@@ -1,9 +1,16 @@
 import React from "react";
 import { FiSearch, FiHeart } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import { useNavigate } from "react-router-dom"; 
 import UserMenu from "../../views/user/Home/components/UserMenu";
 
 const Header = () => {
+  const navigate = useNavigate(); 
+
+  const handleCartClick = () => {
+    navigate("/shoppingbag"); 
+  };
+
   return (
       <header className="bg-[#fff]">
           <div className="px-8">
@@ -18,11 +25,8 @@ const Header = () => {
             <UserMenu />
 
           <div className="relative flex items-center justify-center">
-            <button aria-label="Cart" className="hover:text-black relative">
+            <button aria-label="Cart" className="hover:text-black relative" onClick={handleCartClick} >
               <HiOutlineShoppingBag className="w-6 h-6" />
-              <span className="absolute -top-1 -right-1 bg-[#F2994A] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
-                5
-              </span>
             </button>
           </div>
 

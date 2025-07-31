@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import ProductCard from "./ProductCard";
 
-const ProductSuggestions = ({ products }) => {
+const ProductSuggestions = ({ products, excludeIds = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const visibleCount = 4;
 
+  const filteredProducts = products
+    .filter((p) => !excludeIds.includes(p.id))
+    .slice(0, 10);
+  
+  const maxIndex = Math.max(filteredProducts.length - visibleCount, 0);
+
   const nextSlide = () => {
-    if (currentIndex < products.length - visibleCount) {
-      setCurrentIndex(currentIndex + 1);
+    if (currentIndex < maxIndex) {
+      setCurrentIndex((prev) =>
+        prev + 1 > maxIndex ? maxIndex : prev + 1
+      );
     }
   };
 
@@ -30,7 +38,7 @@ const ProductSuggestions = ({ products }) => {
                 </button>
 
                 <div className="flex gap-8 overflow-hidden w-full justify-center">
-                    {products
+                    {filteredProducts
                     .slice(currentIndex, currentIndex + visibleCount)
                     .map((p) => (
                         <ProductCard
@@ -45,7 +53,7 @@ const ProductSuggestions = ({ products }) => {
 
                 <button
                     onClick={nextSlide}
-                    disabled={currentIndex >= products.length - visibleCount}
+                    disabled={currentIndex >= maxIndex}
                     className="absolute right-0 top-1/2 -translate-y-1/2 p-2 disabled:opacity-50"
                 >
                     <FiChevronRight size={24} />
